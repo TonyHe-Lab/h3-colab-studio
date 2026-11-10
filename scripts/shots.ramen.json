@@ -1,0 +1,32 @@
+[
+ {
+  "name": "shot1-exterior",
+  "overrides": {
+   "140:131.inputs.prompt": "integrated_multimodal_description: Wide establishing shot, camera slowly pushes in across a wet alley at a slow speed with small amplitude. On a rainy night in a narrow Chinese city alley, a tiny noodle shop glows warm amber through steamed windows against the cool blue dark. A tired East Asian man in his thirties with short black hair, wearing a dark wet raincoat, closes his black umbrella under the awning and pushes open the glass door; warm light spills onto the wet pavement, rain falling steadily, steam drifting out of the doorway. Single continuous take, no cuts, photorealistic, cinematic, warm amber and cool blue night palette, visible rain streaks and reflective wet ground. overall_soundscape: steady rain drumming on the awning and puddles, distant traffic hum, the glass door swinging open with a soft chime, low warm chatter and kitchen clatter from inside the shop. non_diegetic_music: soft warm lo-fi piano, gentle and quiet.",
+   "92.inputs.filename_prefix": "h3/shot1-exterior",
+   "140:129.inputs.noise_seed": 424242,
+   "115.inputs.megapixels": 1.0,
+   "140:133.inputs.value": 5.0
+  }
+ },
+ {
+  "name": "shot2-dialogue",
+  "overrides": {
+   "140:131.inputs.prompt": "integrated_multimodal_description: Close-up shot, camera holds steady with a very slight slow push-in. Inside the small warm noodle shop with warm amber light and cool blue window behind, an older East Asian woman in her sixties with silver-grey hair tied back, wearing a white apron over a red sweater, stands behind a wooden counter with a steaming noodle pot. She looks up kindly and says warmly in Mandarin Chinese (S1): \"这么晚才收工？先坐，我给你加个蛋。\" Her expression is kind and unhurried, steam drifting through the frame. Single continuous take, no cuts, photorealistic, cinematic, warm amber and cool blue night palette. overall_soundscape: bubbling noodle pot and steam hiss close to the mic, soft kitchen clatter, rain pattering on the dark window behind her. non_diegetic_music: the same soft warm lo-fi piano, very low in the mix. no cuts",
+   "92.inputs.filename_prefix": "h3/shot2-dialogue",
+   "140:129.inputs.noise_seed": 424242,
+   "115.inputs.megapixels": 1.0,
+   "140:133.inputs.value": 5.0
+  }
+ },
+ {
+  "name": "shot3-payoff",
+  "overrides": {
+   "140:131.inputs.prompt": "integrated_multimodal_description: Two-shot, camera holds a steady wide framing with almost no movement. The same tired East Asian man in his thirties with short black hair in a dark wet raincoat, sleeves pushed up, sits at the wooden counter of the warm amber noodle shop before a steaming bowl of noodles with a visibly extra egg on top; he takes the first bite, his shoulders relax, and a small grateful smile appears. Behind the counter the same older East Asian woman in her sixties with silver-grey hair in a white apron over a red sweater turns back to her pot, smiling quietly to herself. Steam rises from the bowl, rain runs down the dark cool blue window. Single continuous take, no cuts, photorealistic, cinematic, warm amber and cool blue night palette. overall_soundscape: a soft slurp and the clink of chopsticks on the bowl, the bubbling pot, rain on the window, quiet warm room tone. non_diegetic_music: the soft warm lo-fi piano resolving gently, fading under the room tone.",
+   "92.inputs.filename_prefix": "h3/shot3-payoff",
+   "140:129.inputs.noise_seed": 424242,
+   "115.inputs.megapixels": 1.0,
+   "140:133.inputs.value": 5.0
+  }
+ }
+]

@@ -1,0 +1,32 @@
+[
+ {
+  "name": "shot1-wide",
+  "overrides": {
+   "140:131.inputs.prompt": "Wide establishing shot: the same cozy orange tabby cat in a white NASA-style spacesuit with a transparent spherical helmet floats weightlessly inside a colorful purple and orange nebula, twinkling stars, golden cinematic light, photorealistic, cinematic, ultra-high-definition, single continuous take, no cuts.",
+   "92.inputs.filename_prefix": "h3/shot1-wide",
+   "140:129.inputs.noise_seed": 424242,
+   "115.inputs.megapixels": 1.0,
+   "140:133.inputs.value": 5.0
+  }
+ },
+ {
+  "name": "shot2-closeup",
+  "overrides": {
+   "140:131.inputs.prompt": "Close-up shot: the face of the same cozy orange tabby cat in a white NASA-style spacesuit with a transparent spherical helmet, eyes closed, peaceful expression, golden cinematic light on its fur, colorful purple and orange nebula, twinkling stars, golden cinematic light, photorealistic, cinematic, ultra-high-definition, single continuous take, no cuts.",
+   "92.inputs.filename_prefix": "h3/shot2-closeup",
+   "140:129.inputs.noise_seed": 424242,
+   "115.inputs.megapixels": 1.0,
+   "140:133.inputs.value": 5.0
+  }
+ },
+ {
+  "name": "shot3-detail",
+  "overrides": {
+   "140:131.inputs.prompt": "Detail shot: the fluffy tail of the same cozy orange tabby cat in a white NASA-style spacesuit with a transparent spherical helmet drifts slowly through a colorful purple and orange nebula, twinkling stars, golden cinematic light, photorealistic, cinematic, ultra-high-definition, single continuous take, no cuts.",
+   "92.inputs.filename_prefix": "h3/shot3-detail",
+   "140:129.inputs.noise_seed": 424242,
+   "115.inputs.megapixels": 1.0,
+   "140:133.inputs.value": 5.0
+  }
+ }
+]
