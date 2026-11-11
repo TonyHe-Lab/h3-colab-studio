@@ -11,27 +11,27 @@ description: >-
 # H3 Colab Studio — Prompt-to-Video Workspace with an Agent Bridge
 
 Upstream: `Rea1Felix/H3-colab-studio` (commit `9164b8b`, 2026-11-06, MIT).
-References and `scripts/stitch.sh`
-are upstream verbatim; this file adds field-tested gates below (2026-11).
+Ported to Muse custom-skills 2026-11-07. References and `scripts/stitch.sh`
+are upstream verbatim; this file adds Muse-specific gates below.
 
-## Field-tested gates — read before any run
+## Muse gates — read before any run
 
-- **G4 gate — VERIFIED 2026-11-07 21:56, with an allocation caveat.** A Google AI subscription (Colab Pro / AI Pro) account
+- **G4 gate — VERIFIED 2026-11-07 21:56, with an allocation caveat.** The job.tonyhe@gmail.com account
   CAN select the Colab **G4** runtime in the dropdown (verified by opening
   Runtime → Change runtime type in Untitled0.ipynb, selecting G4, then
   cancelling without saving; no session started, no units spent). The dropdown
   lists CPU, G4, A100, L4, T4, H100 (greyed out / unavailable), v6e-1 TPU,
-  v5e-1 TPU.
+  v5e-1 TPU. The account shows a Colab Pro badge and 227.61 compute units.
   **Caveat (2026-11-07 22:04): listing G4 does not guarantee allocation —
   on real connect Colab said G4 was unavailable and allocated
   A100-SXM4-80GB (79.3 GiB) instead. A100 80GB satisfies the int8 H3
   requirements and the full download verified on it. Do not re-litigate
   the gate: it passed. Re-check only if the account or plan changes.
-- **Execution is browser-driven or CLI-driven.** Colab has no public
-  automation API for allocation; drive it through the browser (open the
-  notebook from `dseditor/minimax-h3-colab`, `H3_Basic_ComfyUI.ipynb`) or
-  through `google-colab-cli` (see `scripts/patch-411.py` for a required
-  fix). Sign-in / verification steps are always the user's own.
+- **Execution is browser-driven.** Muse has no Colab API, no SSH, no fixed
+  address. Drive Colab through `browser.browse` (open the notebook from
+  `dseditor/minimax-h3-colab`, `H3_Basic_ComfyUI.ipynb`), exactly like the
+  `colab-gpu` skill drives SDXL. Sign-in / verification steps are the user's
+  own, never the agent's.
 - **API route (added 2026-11-07, preferred for repeat runs).** ComfyUI is
   headless by design: the web UI is just one client over its HTTP API, so
   generation itself needs no browser clicks. `scripts/comfyui_api_run.py`
@@ -89,7 +89,7 @@ are upstream verbatim; this file adds field-tested gates below (2026-11).
 
 ## Build the workspace app
 
-- Build the app lightweight (a queue app is optional — a plain `shots.json` plus the scripts is enough):
+- Read [the app blueprint](references/app-blueprint.md) and build the app to that spec:
   - **Local coding environments (Antigravity, Claude Code, Cursor, etc.)**: Build a lightweight persistent web app (for example, Vite or Next.js backed by local JSON or SQLite storage) with clean API routes or CLI helpers so job records persist on disk and you can read and update them directly.
   - **Hosted agent workspaces**: Use the host platform's persistent full-stack web app capability so job records survive across sessions and can be updated programmatically.
 
@@ -126,6 +126,18 @@ are upstream verbatim; this file adds field-tested gates below (2026-11).
 - Backfill the job in the app with the final specs, the measured units consumed and an honest note, then deliver the video file to the user in chat with a per-shot quality read.
 
 - Report failures with the exact error text and the state you left behind, including the balance after cleanup and whether the runtime was deleted.
+
+## Dubbing stage — VoxCPM2 (same runtime, never a second runtime)
+
+After shots render, dub dialogue with `scripts/voxcpm_dub.py` (VoxCPM2, OpenBMB; 48kHz, Apache-2.0):
+
+1. Build `dub.json`: `roles` = voice-design descriptions (VoxCPM2 syntax, put the description text as a parenthesized prefix, dialects work — 东北话/四川话 tested), `lines` = per-line `{shot, role, text}`.
+2. Upload `dub.json` + script, run detached (`nohup`), poll `dub.log`.
+3. Output: per-line raw wav (keep for remixing) + `.room.wav` with early-reflection reverb `aecho=0.85:0.82:22|48:0.14|0.07` for picture, plus `manifest.json` (durations → subtitle cues).
+4. Anti-swallowed-tail rule is built in: non-!/？ endings get `……` appended automatically.
+5. Text→TTS gotchas: single sentence ≤14 chars; use sound-unique homophones for polyphonic words (为师→维师); PyPI `generate()` has NO `seed` arg — reproducibility = fixed text + pinned version.
+6. QC loop: run whisper transcription check (missing/mispronounced chars → regenerate); when trimming silence, back off from last voiced frame and keep 0.26s tail (affricates get clipped otherwise).
+7. Cost: ~0.3 RTF on A100-class, minutes per drama — negligible next to 21 min/shot video gen.
 
 ## Measured reference points
 
