@@ -1,0 +1,14 @@
+[
+ {
+  "workflow": "workflow_api_r2v_local.json",
+  "name": "dayi-shot3-outburst",
+  "overrides": {
+   "140:131.inputs.prompt": "subject_definitions:\n- <Subject 1> is the elderly woman shown in <Picture 1> and <Picture 2>, preserving her round face, short deep-brown permed curls, gold-rimmed reading glasses, crimson plaid padded coat, and thick dark-brown knitted scarf.\n- <Subject 2> is the living room shown in <Picture 3>, preserving the beige wall with a tear-off calendar, the wooden TV cabinet with an old CRT television, the window with pothos plants, the cast-iron radiator, and the floral fabric sofa.\n\nsummary: [reference generation] Keep <Subject 1> from <Picture 1>/<Picture 2> inside <Subject 2> from <Picture 3> for one continuous medium shot of her losing patience and standing up to scold the phone.\n\nretention_analysis:\n- <Subject 1> (appears in [Shot 1]): fully_preserved - face, glasses, hairstyle, coat and scarf remain unchanged.\n- <Subject 2> (appears in [Shot 1]): fully_preserved - layout, props and window light remain unchanged.\n\ndetailed_description: [Shot 1] Live-action realistic cinematic look, warm indoor window light, single continuous take, no cuts, locked medium shot from head to knees, very slight handheld feel. <Subject 1> snatches the phone away from her ear and slams it screen-up onto the wooden coffee table in front of her at 2s - a sharp physical thump. She surges up from the sofa edge to a standing position, leans forward pointing at the phone screen with her right index finger, brows knitted, scolding it in an explosive Northeast-Chinese accent. She keeps pointing and wagging her finger until the clip ends.\n(S1) says: [Chinese] 你搁这儿跟我俩扯犊子呢！\n(S1) says: [Chinese] 机器是吧？行，你就等着！\n\noverall_soundscape: room tone, a sharp table thump at 2s, sofa springs creaking as she stands, her breath quick and loud.\nnon_diegetic_music: N/A",
+   "92.inputs.filename_prefix": "h3/dayi-shot3-outburst",
+   "140:129.inputs.noise_seed": 20261111,
+   "115.inputs.megapixels": 0.98,
+   "115.inputs.aspect_ratio": "9:16 (Portrait Widescreen)",
+   "140:133.inputs.value": 10.0
+  }
+ }
+]

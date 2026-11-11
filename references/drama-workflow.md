@@ -64,9 +64,40 @@
 - **Drive 上传 >10MB 文件 multipart 会写超时**，改 resumable（session URI + PUT）稳定；脚本 `drive_upload_resumable.py` 模式已验证（10.8MB 一次成功）。
 - **定妆照路线**：Gemini 3.1 Flash Image（8317 代理，AI Pro 额度，0 CCU）出角色定妆照可行；但 T2V 工作流不吃参考图，一致性仍靠锚点逐字复用+单 seed（实测跨镜服装/场景/人物一致性良好）。
 
+## 2026-11-11 晚间新验证事实（《打印机》+《大姨》+ R2V/I2V A/B）
+
+- **单动作定律（本日最重要）**：一条 prompt 只给**一个主导动作**。多动作链
+  （拍手机→起身→怒指）必然时间线滞后漏拍——实测 3s 处仍坐姿贴耳通话、全片
+  只出怒吼表情。v2 简化为「站立怒指」单一动作（起手即站定，指两次配台词节奏）
+  一次过关。重拍成本 ~3.4 单元，写 prompt 时省钱比重拍省得多。
+- **画面内文字不可靠**：H3 生成"纸上写字"会出手写体乱码+语义重复，定格放大即穿帮。
+  解法：改成画面中只出现**单个印刷图标**并显式写 `no written words at all`，一次过关。
+- **双角色防串脸方案（已验证，零串脸）**：把第二个角色放进**屏内**——客服只存在于
+  手机屏幕里，与大姨物理隔离。配合 Subject-Picture 显式绑定（`<Subject N> is the
+  person shown in <Picture N>` + 外观锚点逐字复用）。真人面对面双角色未测。
+- **R2V 路线已跑通**：Ref2VA 20 步，A100-40GB 竖屏 10s 采样 ~17min/镜，一次入队成功。
+  `ref_images` 用列表格式 `[["r1",0],["r2",0],["r3",0]]` 直接入 /prompt 实测可用
+  （`workflow_api_r2v_local.json`）；4 参考版（新增 r4 LoadImage 节点 +
+  ref_images 追加 `["r4",0]`）即 `workflow_api_r2v_4ref.json`，双角色同框专用。
+- **六段式 prompt 实测可用**：`subject_definitions / summary / retention_analysis /
+  detailed_description / 台词(S1)(S2) / overall_soundscape + non_diegetic_music`。
+  retention_analysis 逐角色写 fully_preserved / partially_copy（屏内角色用 partial）。
+- **R2V vs I2V 选型**（同 seed 同镜 A/B 实测，均一次过关）：
+  I2V（首帧锚定）细节最强、体积大一倍（6.19 vs 3.42MB）；R2V 不依赖先出首帧。
+  **有首帧→I2V；多角色同框或无首帧→R2V**。采样耗时两者几乎相同（~17min）。
+- **定妆照四格模板实测**：客服角色（职业装+耳麦+工牌）一次出片合格。配饰有方向性时
+  （如单边耳麦）需在 prompt 里锁定左右，否则四格间会出现镜像不一致。
+- **成本实测**（A100-40GB，10s 竖屏）：T2V turbo 采样 ~19-23min/镜；R2V ~17min/镜。
+  3 镜全流程（含环境装+拼接）T2V 9.18 / R2V+I2V 混合 ~14 单元；单镜重拍含环境 ~3.4。
+- **工程坑补充**：`colab upload` 必须用位置参数 `upload -s <会话> <本地> /content/<名>`，
+  `-f` 形式文件不落 /content；`colab exec` 不能给脚本传参 → detached 模式
+  `nohup python3 xxx.py > log 2>&1 &` 由 launcher 脚本拉起；**launcher 写完先自查一遍**——
+  曾漏写 `--dry-run` 导致校验跑成真采样（本次目标恰好是拍片未浪费，通用场景就是白烧）。
+
 ## 升级路线（未验证，待做）
 
 - 单段热修：潜变量断点 `--only-seg`（Delroy715 方案，需 ComfyUI 多段续接工作流）。
 - 多镜头视觉记忆：KadoBOT/ComfyUI-H3-Continuity-Studio（五帧 latent 记忆，跨镜房间/服装不漂）。
-- 定妆照锚定：本地生图出角色三视图 → Ref2VA/I2V 模式（six-section prompt + `<d>` 台词标签）。
+- 定妆照锚定：本地生图出角色三视图 → **Ref2VA R2V / I2V 均已验证**（见上节）；
+  剩余待测：真人面对面双角色绑定、五帧 latent 记忆（KadoBOT/ComfyUI-H3-Continuity-Studio）。
 - 后期字幕：ffmpeg + 声学包络对齐（auto_subtitle 思路）。

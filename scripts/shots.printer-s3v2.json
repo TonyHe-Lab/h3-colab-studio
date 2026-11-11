@@ -1,0 +1,13 @@
+[
+ {
+  "name": "shot3-detail-morning-v2",
+  "overrides": {
+   "140:131.inputs.prompt": "Detail shot: the output slot of the same old beige office laser printer in the bright morning office, blurred office workers rushing and searching for files in the deep background, the printer calmly feeds one clean white page that slides out slowly toward the camera in extreme close-up, the page shows only a single large simple printed smiley face icon in its center and no written words at all, the small green LCD display glows steadily, camera locked off with only the paper moving, warm morning sunlight mixing into the cold fluorescent office lighting, teal-grey palette softened by amber highlights, photorealistic, cinematic, single continuous take, no cuts. The printer says gently in Mandarin Chinese (S1): \"别找了。要找的答案，早就从我肚子里出来了。\" Overall soundscape: busy office chatter and footsteps blurred in background, one smooth paper feed, a soft friendly beep. Non-diegetic music: warm hopeful piano and light strings, low in the mix.",
+   "92.inputs.filename_prefix": "h3/shot3-detail-morning-v2",
+   "140:129.inputs.noise_seed": 20261111,
+   "115.inputs.megapixels": 1.0,
+   "115.inputs.aspect_ratio": "9:16 (Portrait Widescreen)",
+   "140:133.inputs.value": 10.0
+  }
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "workflow": "workflow_api_r2v_local.json",
+  "name": "dayi-shot3-outburst-v2",
+  "overrides": {
+   "140:131.inputs.prompt": "subject_definitions:\n- <Subject 1> is the elderly woman shown in <Picture 1> and <Picture 2>, preserving her round face, short deep-brown permed curls, gold-rimmed reading glasses, crimson plaid padded coat, and thick dark-brown knitted scarf.\n- <Subject 2> is the living room shown in <Picture 3>, preserving the beige wall with a tear-off calendar, the wooden TV cabinet with an old CRT television, the window with pothos plants, the cast-iron radiator, the floral fabric sofa, and the wooden coffee table in front of the sofa.\n\nsummary: [reference generation] Keep <Subject 1> from <Picture 1>/<Picture 2> standing inside <Subject 2> from <Picture 3> for one continuous medium shot, angrily pointing at the smartphone lying on the coffee table.\n\nretention_analysis:\n- <Subject 1> (appears in [Shot 1]): fully_preserved - face, glasses, hairstyle, coat and scarf remain unchanged.\n- <Subject 2> (appears in [Shot 1]): fully_preserved - layout, props and window light remain unchanged.\n\ndetailed_description: [Shot 1] Live-action realistic cinematic look, warm indoor window light, single continuous take, no cuts, locked medium shot from head to knees, very slight handheld feel. From the very first frame <Subject 1> is ALREADY fully standing in front of the coffee table, feet planted, body leaning slightly forward. A smartphone lies screen-up on the coffee table before her. Her ONE action for the whole clip: right arm raised and extended toward the phone, index finger pointing straight at it, stabbing and wagging the finger twice in rhythm with her scolding - once around 3s, once around 6s - while her left hand rests pressed on her hip. Brows knitted, mouth open, explosive Northeast-Chinese scolding energy. No walking, no sitting down, no standing up, no grabbing the phone - she stays standing in place pointing the entire time.\n(S1) says: [Chinese] 你搁这儿跟我俩扯犊子呢！\n(S1) says: [Chinese] 机器是吧？行，你就等着！\n\noverall_soundscape: quiet room tone, her breath quick and loud, the scarf fabric rustling as her arm stabs the air.\nnon_diegetic_music: N/A",
+   "92.inputs.filename_prefix": "h3/dayi-shot3-outburst-v2",
+   "140:129.inputs.noise_seed": 20261111,
+   "115.inputs.megapixels": 0.98,
+   "115.inputs.aspect_ratio": "9:16 (Portrait Widescreen)",
+   "140:133.inputs.value": 10.0
+  }
+ }
+]

@@ -1,0 +1,24 @@
+[
+ {
+  "name": "shot2-closeup-layoff",
+  "overrides": {
+   "140:131.inputs.prompt": "Close-up shot: the paper tray and small green LCD display of the same old beige office laser printer on the gray metal cabinet, a middle-aged manager seen only from behind in a dark suit steps up at 11 PM, drops a stack of papers on the tray and presses one button, the printer pulls paper and prints page after page in slow deliberate rhythm, camera holds a tight static close-up with a very slight downward tilt following the paper, cold fluorescent office lighting, teal-grey palette, photorealistic, cinematic, single continuous take, no cuts. The manager says flatly in Mandarin Chinese (S2): \"把这份名单打出来，明早要用。\" The printer whispers in Mandarin Chinese (S1): \"裁员名单……这张纸，会改变很多人的明天。\" Overall soundscape: sharp roller feed clunks, paper sliding, manager's shoes on carpet, low nervous room tone. Non-diegetic music: tense single sustained cello note, low in the mix.",
+   "92.inputs.filename_prefix": "h3/shot2-closeup-layoff",
+   "140:129.inputs.noise_seed": 20261111,
+   "115.inputs.megapixels": 1.0,
+   "115.inputs.aspect_ratio": "9:16 (Portrait Widescreen)",
+   "140:133.inputs.value": 10.0
+  }
+ },
+ {
+  "name": "shot3-detail-morning",
+  "overrides": {
+   "140:131.inputs.prompt": "Detail shot: the output slot of the same old beige office laser printer in the bright morning office, blurred office workers rushing and searching for files in the background, the printer calmly prints one warm handwritten-style note page that slides out slowly toward the camera in extreme close-up, the small green LCD display lights up with a simple pixel smiley face, camera locked off with only the paper moving, warm morning sunlight now mixing into the cold fluorescent office lighting, teal-grey palette softened by amber highlights, photorealistic, cinematic, single continuous take, no cuts. The printer says gently in Mandarin Chinese (S1): \"别找了。要找的答案，早就从我肚子里出来了。\" Overall soundscape: busy office chatter and footsteps blurred in background, one smooth paper feed, a soft friendly beep. Non-diegetic music: warm hopeful piano and light strings, low in the mix.",
+   "92.inputs.filename_prefix": "h3/shot3-detail-morning",
+   "140:129.inputs.noise_seed": 20261111,
+   "115.inputs.megapixels": 1.0,
+   "115.inputs.aspect_ratio": "9:16 (Portrait Widescreen)",
+   "140:133.inputs.value": 10.0
+  }
+ }
+]

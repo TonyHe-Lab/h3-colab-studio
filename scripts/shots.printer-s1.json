@@ -1,0 +1,13 @@
+[
+ {
+  "name": "shot1-wide-monologue",
+  "overrides": {
+   "140:131.inputs.prompt": "Wide establishing shot: an old beige office laser printer with a small green LCD display stands alone on a gray metal cabinet in a dim empty open-plan office at night, cubicles fading into darkness behind it, slow gentle push-in from eye level across the room, cold fluorescent office lighting with one flickering panel, teal-grey palette, photorealistic, cinematic, single continuous take, no cuts. The printer says warmly in Mandarin Chinese (S1): \"我死了。一睁眼，醒来变成了公司茶水间旁，那台谁都不会多看一眼的老打印机。\" Overall soundscape: quiet office air conditioning hum, distant elevator ding, the printer's cooling fan ticking softly under the voice. Non-diegetic music: sparse melancholic piano notes, low in the mix.",
+   "92.inputs.filename_prefix": "h3/shot1-wide-monologue",
+   "140:129.inputs.noise_seed": 20261111,
+   "115.inputs.megapixels": 1.0,
+   "115.inputs.aspect_ratio": "9:16 (Portrait Widescreen)",
+   "140:133.inputs.value": 10.0
+  }
+ }
+]

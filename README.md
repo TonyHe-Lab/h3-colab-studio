@@ -8,6 +8,15 @@
 |---|---|---|
 | 宇航猫（3 镜横屏） | 1376x768，15.5s | ~10.5 单元（A100-80GB，含环境 ~90 分钟） |
 | 白熬了（3 镜竖屏） | 768x1376，30.4s（10s/镜） | 8.32 单元（A100-40GB） |
+| 我重生成公司打印机（3 镜竖屏，T2V） | 768x1376，30.4s | 9.18 单元 + 单镜重拍 3.12 |
+| 东北大姨整治AI客服（3 镜竖屏，R2V/I2V 混合） | 768x1344，30.4s | ~14 单元（含 A/B 对比测试 5.22） |
+
+2026-11-11 新增能力（详见 `references/drama-workflow.md` 末节）：
+
+- **R2V 角色锁定路线**：参考图（定妆照/全身/场景卡）直接驱动生成，20 步 ~17min/镜；`workflow_api_r2v_local.json`（3 参考）与 `workflow_api_r2v_4ref.json`（4 参考，双角色同框）均实测一次入队成功。
+- **I2V 首帧锚定路线**：细节最强、体积大一倍；选型规则——有首帧用 I2V，多角色同框或无首帧用 R2V。
+- **双角色防串脸**：第二角色放进画面内的屏幕（手机屏里出镜），物理隔离 + Subject-Picture 显式绑定，实测零串脸。
+- **两条硬教训**：①一条 prompt 只给一个主导动作，多动作链必时间线滞后漏拍；②H3 生成画面内文字不可靠，改用单个印刷图标并显式禁写文字。
 
 上游：[Rea1Felix/H3-colab-studio](https://github.com/Rea1Felix/H3-colab-studio)（MIT）+ [dseditor/minimax-h3-colab](https://github.com/dseditor/minimax-h3-colab) 笔记本。References 与 `scripts/stitch.sh` 来自上游，本仓补充了 2026-11 实跑验证的规程与坑。
 
@@ -18,7 +27,7 @@
 - `references/colab-runbook.md` — Colab 会话与模型下载 runbook（浏览器路线）
 - `references/mac-runbook.md` — colab CLI 无 UI 路线（手机/终端发起）
 - `references/prompt-spec.md` — H3 官方 prompt 结构
-- `scripts/` — 全套脚本（排队/轮询/下载/拼接/Drive 上传/411 补丁）
+- `scripts/` — 全套脚本（排队/轮询/下载/拼接/Drive 上传/411 补丁；`workflow_api_r2v*.json` / `workflow_api_i2v_local.json` 为参考图与首帧路线工作流，`shots.dayi.*.json` / `shots.printer*.json` 为实测分镜样例）
 
 ## 核心方法（为什么能省钱出片）
 

@@ -1,0 +1,14 @@
+[
+ {
+  "workflow": "workflow_api_r2v_local.json",
+  "name": "dayi-shot2-twochar",
+  "overrides": {
+   "140:131.inputs.prompt": "subject_definitions:\n- <Subject 1> is the elderly woman shown in <Picture 1> and <Picture 2>, preserving her round face, short deep-brown permed curls, gold-rimmed reading glasses, crimson plaid padded coat, and thick dark-brown knitted scarf.\n- <Subject 2> is the living room shown in <Picture 3>, preserving the beige wall with a tear-off calendar, the wooden TV cabinet with an old CRT television, the window with pothos plants, the cast-iron radiator, and the floral fabric sofa.\n- <Subject 3> is the young female AI customer-service agent shown in <Picture 4>, preserving her neat low ponytail with full bangs, dark-blue blazer vest over a white shirt, work badge, and her single-side headset with the microphone boom on her LEFT cheek.\n\nsummary: [reference generation] Keep <Subject 1> from <Picture 1>/<Picture 2> inside <Subject 2> from <Picture 3> for one continuous medium shot, and show <Subject 3> from <Picture 4> only inside the smartphone screen as a video-call agent.\n\nretention_analysis:\n- <Subject 1> (appears in [Shot 1]): fully_preserved - face, glasses, hairstyle, coat and scarf remain unchanged.\n- <Subject 2> (appears in [Shot 1]): fully_preserved - layout, props and window light remain unchanged.\n- <Subject 3> (appears in [Shot 1]): partially_copy - she exists only inside the phone screen, her headset boom stays on her left cheek, corporate smile.\n\ndetailed_description: [Shot 1] Live-action realistic cinematic look, warm indoor window light, single continuous take, no cuts, locked medium shot from head to knees, very slight handheld feel. <Subject 1> sits on the edge of the floral sofa holding her black smartphone up in front of her chest in a speakerphone video-call position, screen facing her; inside the bright phone screen <Subject 3> sits at a corporate desk nodding with a professional customer-service smile, clearly smaller and framed by the screen bezel. <Subject 1> glares at the screen, jabs the screen once with her index finger at 5s, then pulls the phone closer to her face, frowning. The two characters never blend: the agent stays inside the screen, the woman stays in the room.\n(S1) says: [Chinese] 三天了！我的退款呢？\n(S2) says: [Chinese] 亲亲，这边建议您耐心等待哦～\n\noverall_soundscape: quiet living-room room tone, wall clock ticking, faint radiator hum, tinny phone-speaker voice for the agent line.\nnon_diegetic_music: N/A",
+   "92.inputs.filename_prefix": "h3/dayi-shot2-twochar",
+   "140:129.inputs.noise_seed": 20261111,
+   "115.inputs.megapixels": 0.98,
+   "115.inputs.aspect_ratio": "9:16 (Portrait Widescreen)",
+   "140:133.inputs.value": 10.0
+  }
+ }
+]

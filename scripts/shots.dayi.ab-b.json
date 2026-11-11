@@ -1,0 +1,14 @@
+[
+ {
+  "workflow": "workflow_api_i2v_local.json",
+  "name": "AB-B-i2v-shot1",
+  "overrides": {
+   "140:131.inputs.prompt": "Live-action realistic cinematic look, warm indoor window light, single continuous take, no cuts, locked medium shot from head to knees, very slight handheld feel. The elderly woman in the frame - round face, short deep-brown permed curls, gold-rimmed reading glasses, crimson plaid padded coat, thick dark-brown knitted scarf - sits on the edge of the floral fabric sofa in her old Northeast-Chinese living room (beige wall with tear-off calendar, wooden TV cabinet with CRT television, window with pothos plants, cast-iron radiator). She leans forward, holding a black smartphone tightly to her left ear, her right hand pressed to her chest over the scarf, talking in an earnest, exasperated tone with an AI customer service agent. At 5s she pulls the phone away for a moment and gestures with it, then presses it back to her ear. The clip ends with her still on the call, frowning, unconvinced. Keep her face, glasses, hairstyle and outfit exactly as in the first frame throughout.\n(S1) says: [Chinese] 喂——机器人是吧？\n(S1) says: [Chinese] 我的订单，到底退不退？\n\nAudio: quiet living-room room tone, wall clock ticking, faint radiator hum, muffled street noise through the window glass. No background music.\nNo text, subtitles, logos or watermarks, no cuts.",
+   "92.inputs.filename_prefix": "h3/AB-B-i2v-shot1",
+   "140:129.inputs.noise_seed": 20261111,
+   "115.inputs.megapixels": 0.98,
+   "115.inputs.aspect_ratio": "9:16 (Portrait Widescreen)",
+   "140:133.inputs.value": 10.0
+  }
+ }
+]
